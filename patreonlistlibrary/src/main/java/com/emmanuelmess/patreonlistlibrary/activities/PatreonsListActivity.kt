@@ -6,12 +6,17 @@ import kotlinx.android.synthetic.main.activity_patreonslist.*
 import android.content.Intent
 import android.net.Uri
 import com.emmanuelmess.patreonlistlibrary.R
-import android.app.Activity
-import androidx.core.app.ActivityCompat
+import com.emmanuelmess.patreonlistlibrary.Backer
+import com.emmanuelmess.patreonlistlibrary.PatreonListData
 
 class PatreonsListActivity : AppCompatActivity() {
+    companion object {
+        const val DATA_ARG = "data"
+    }
 
     private var parentActivity: Class<*>? = null
+    private lateinit var backers: List<Backer>
+    private lateinit var completeListUri: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +28,13 @@ class PatreonsListActivity : AppCompatActivity() {
 
         parentActivity = if(comp == null) null else Class.forName(comp.className)
 
+        val data = intent.getParcelableExtra<PatreonListData>(DATA_ARG)
+
+        backers = data.backers
+        completeListUri = data.completeList
 
         fab.setOnClickListener { _ ->
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://emmanuelmessulam.com.ar/thanks.html")))
+            startActivity(Intent(Intent.ACTION_VIEW, completeListUri))
         }
     }
 
