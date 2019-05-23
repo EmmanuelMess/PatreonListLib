@@ -1,13 +1,10 @@
-package com.emmanuelmess.patreonlistlibrary.activities
+package com.emmanuelmess.patreonlistlibrary
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_patreonslist.*
 import android.content.Intent
 import android.net.Uri
-import com.emmanuelmess.patreonlistlibrary.R
-import com.emmanuelmess.patreonlistlibrary.Backer
-import com.emmanuelmess.patreonlistlibrary.PatreonListData
 
 class PatreonsListActivity : AppCompatActivity() {
     companion object {

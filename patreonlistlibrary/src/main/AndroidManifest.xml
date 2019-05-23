@@ -6,7 +6,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.PatreonsListActivity"
+            android:name=".PatreonsListActivity"
             android:label="@string/title_activity_patreons_list"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
