@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_patreonslist.*
 import android.content.Intent
 import android.net.Uri
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.content_patreons_list.*
 
 class PatreonsListActivity : AppCompatActivity() {
@@ -34,7 +36,8 @@ class PatreonsListActivity : AppCompatActivity() {
         }
 
         val adapter = PatreonListAdapter(this, data.backers.map(::BackerItem))
-        listView.adapter = adapter
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
 
