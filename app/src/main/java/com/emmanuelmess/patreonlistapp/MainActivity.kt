@@ -20,7 +20,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, PatreonsListActivity::class.java).apply {
             putExtra(
                 PatreonsListActivity.DATA_ARG, PatreonListData(
-                listOf(Backer("Alfred"), Backer("Vishal Nehra")),
+                listOf(
+                    Backer("Alfred"),
+                    Backer("Vishal Nehra")
+                ),
                 Uri.parse("http://emmanuelmessulam.com.ar/thanks.html")
             ))
         })

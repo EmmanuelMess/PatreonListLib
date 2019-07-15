@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_patreonslist.*
 import android.content.Intent
 import android.net.Uri
+import kotlinx.android.synthetic.main.content_patreons_list.*
 
 class PatreonsListActivity : AppCompatActivity() {
     companion object {
@@ -12,7 +13,6 @@ class PatreonsListActivity : AppCompatActivity() {
     }
 
     private var parentActivity: Class<*>? = null
-    private lateinit var backers: List<Backer>
     private lateinit var completeListUri: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,12 +27,14 @@ class PatreonsListActivity : AppCompatActivity() {
 
         val data = intent.getParcelableExtra<PatreonListData>(DATA_ARG)
 
-        backers = data.backers
         completeListUri = data.completeList
 
         fab.setOnClickListener { _ ->
             startActivity(Intent(Intent.ACTION_VIEW, completeListUri))
         }
+
+        val adapter = PatreonListAdapter(this, data.backers.map(::BackerItem))
+        listView.adapter = adapter
     }
 
 
